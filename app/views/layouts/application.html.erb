@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>talkle</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel=”icon” type=”image/png” href=“/image/t-logo.png”>
+  </head>
+  <header class = header>
+<h1><%=link_to "talkle",root_path,method: :get%></h1>
+<%= form_tag(search_tweets_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+<% if user_signed_in? %>  
+          <div class="btn btn--orange btn--radius">
+             <%= link_to "マイページ", user_path(current_user) %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "投稿する", "/tweets/new", class: "post" %>
+          </div>
+        <% else %>
+          <div class="btn btn--orange btn--radius">
+            <%= link_to "ログイン", new_user_session_path, class: "post" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          </div>
+        <% end %>
+</header>
+
+  <body class=view>
+  <div class = space></div>
+    <%= yield %>
+  </body>
+</html>

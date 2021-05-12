@@ -1,0 +1,10 @@
+<%= form_tag("/users/#{current_user.id}", method: :patch ) do %>
+ <div class = las>
+    <h3>
+      編集する
+    </h3>
+    <textarea name="string" placeholder="nicname"rows="1" cols="6"><%= current_user.nickname %></textarea>
+    
+    <input type="submit" value="SEND">
+    </div>
+  <% end %>

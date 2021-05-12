@@ -1,0 +1,24 @@
+<H3><%=current_user.nickname%>---<%= link_to '編集', "/users/#{current_user.id}/edit", method: :get %></h3>
+ <span><% @tweets.each do |tweet| %></span>
+  <div class = tweet>
+      <div class =write >
+        <p><%= current_user.nickname %>---<%= tweet.created_at%></p>
+        <p><%= tweet.text %>---<%link_to '詳細', "/tweets/#{tweet.id}", mehod: :get%></p>
+    </div>
+
+           <% if user_signed_in? && current_user.id == tweet.user_id %>
+              <div class = menu>
+               <ul>
+                <li>
+                   <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+                </li>
+                <li>
+                  <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+                </li>
+              </ul>
+              </div>
+           <% end %>
+    </div>
+  <span><% end %></span>
+  <%= paginate(@tweets) %>
+  

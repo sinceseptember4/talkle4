@@ -1,0 +1,73 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background-color: rgba;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 30px 10px 30px;
+}
+.view {
+background-image: url(https://kenpro-shop.jp/user_data/packages/default/img/category/material/best/sky_02.jpg);
+ background-size: cover;
+}
+.space{
+height: 110px;
+width: auto;
+
+}
+.body {
+padding: 1400px auto;
+
+}
+.tweet {
+display: flex;
+justify-content: space-between;
+    background-color:rgba(255,255,255,.4);
+border: solid 1px black;
+align-items: center;
+height: auto;
+width: auto;
+margin: 10px 10px;
+border-radius: 10px;
+}
+.write{
+width: 98%;
+margin: 0 0 0 20px;
+}
+.menu{
+width: 90px;
+}
+
+.lass {
+display: flex;
+justify-content: space-between;
+border: solid 1px black;
+align-items: center;
+height: 150px;
+width: 1400px;
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

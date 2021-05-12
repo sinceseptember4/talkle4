@@ -1,0 +1,40 @@
+  <div class = tweet>
+      <div class =write >
+        <p><%= @tweet.user.nickname %>---<%= @tweet.created_at%></p>
+        <p><%= @tweet.text %></p>
+    </div>
+    </div>
+     <h4>＜コメント一覧＞</h4>
+   <div class = tweet>
+  <h4>コメントする</h4>
+   <% if current_user %>
+      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+        <textarea name="text" placeholder="コメントする" ></textarea>
+        <input type="submit" value="SEND">
+      <% end %>
+    <% end %>
+</div>
+ 
+
+        <% @comments.each do |comment| %>
+ <div class = tweet>
+      <div class =write >
+        <p><%= comment.user.nickname%>---<%= comment.created_at%></p>
+        <p><%= comment.text %></p>
+    </div>
+
+           <% if user_signed_in? && current_user.id == comment.user_id %>
+              <div class = menu>
+               <ul>
+                <li>
+                   <%= link_to '削除', "/tweets/#{@tweet.id}/comments/#{comment.id}", method: :delete %>
+                </li>
+                <li>
+                  <% link_to '編集', "/tweets/#{@tweet.id}/comments/#{comment.id}/edit", method: :get %>
+                </li>
+              </ul>
+              </div>
+           <% end %>
+    </div>
+  <span><% end %></span>
+ <%= paginate(@comments) %>
